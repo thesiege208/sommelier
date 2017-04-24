@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<html ng-app="recipeAssistant">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SOMMELIER</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="css/index.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                var $landing = $("#landing"),
+                    $actual  = $("#actual");
+                $landing.on("click", function (){                
+                    $(this).addClass("clicked");
+                })
+             });
+        </script>
+    </head>
+
+    <body>
+        <div class="site-wrapper">
+            <div class="container-fluid">
+                <div id="actual">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+
+                <div id="landing">
+                    <h1>SOM<br />
+                        MEL<br />
+                        IER
+                    </h1>
+                </div>                
+
+            </div>
+        </div>
+    </body>
+</html>
