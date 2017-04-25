@@ -49,6 +49,11 @@ h1 {
 	top: 0;
 	left: 0;
 	background-color: #4D0013;
+	display: inline-block;
+}
+
+span {
+	margin: 15px;
 }
 
 h2 {
@@ -56,4 +61,29 @@ h2 {
 	font-family: 'Gruppo', sans-serif;
 	font-size: 300%;
 	text-align: center;
+	float: right;
+	margin: 15px;
+}
+
+form {
+	color: #4D0013;
+	font-family: 'Gruppo', sans-serif;
+	font-size: 24px;
+	display: inline-block;
+	text-align: center;
+}
+
+#search {
+	margin-top: 40%;
+}
+
+input {
+	border-radius: 5px;
+	border: none;
+	margin: 5px;
+}
+
+#btn {
+	background-color: #4D0013;
+	color: #FCECCB;
 }

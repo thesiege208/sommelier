@@ -30,12 +30,22 @@
             <div class="container-fluid">
                 <div id="actual">
                     <div id="navbar">
+                        <span class="glyphicon glyphicon-shopping-cart" style="font-size:300%;color:#FCECCB"></span>
                         <h2>SOMMELIER</h2>
                     </div>
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-8">
-                            <!-- add search bar -->
+                            <div  id="search" align="center">
+                                <form>
+                                    <select name="choice">
+                                        <option value="food">food</option>
+                                        <option value="wine">wine</option>
+                                    </select>
+                                    <input type="text" name="search" id="bar">
+                                    <input type="submit" value="SEARCH" id="btn">
+                                </form>
+                            </div>
                         </div>
                         <div class="col-sm-2"></div>
                     </div>
