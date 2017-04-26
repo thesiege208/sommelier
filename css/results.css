@@ -145,7 +145,7 @@ h3 {
 	color: ##600017;
 }
 
-.expansions p a:visited {
+.expansions p a::visited {
 	color: grey;
 	pointer-events: none;
 	cursor: default;
