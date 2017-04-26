@@ -43,7 +43,20 @@ h3 {
 	overflow: hidden;
 }
 
-#result-img-container {
+/*hardcoded*/
+#result-img-container0 {
+	width: 150px;
+	height: 149px;
+	border-right: 1px solid black;
+}
+
+#result-img-container1 {
+	width: 150px;
+	height: 149px;
+	border-right: 1px solid black;
+}
+
+#result-img-container2 {
 	width: 150px;
 	height: 149px;
 	border-right: 1px solid black;
@@ -72,7 +85,7 @@ h3 {
 	font-weight: bold;
 }
 
-#toggle {
+.toggles {
 	display: none;
 	visibility: hidden;
 }
@@ -107,7 +120,8 @@ h3 {
 	float: right;
 }
 
-#expand {
+/*hardcoded*/
+.expansions {
 	height: 0px;
 	overflow-y: scroll;
 	transition: height 0.5s;
@@ -116,22 +130,22 @@ h3 {
 	padding-left: 10px;
 }
 
-#expand p {
+.expansions p {
 	font-size: 16px;
 	color: #4D0013;
 	line-height: 1.5em;
 }
 
-#expand p a:link {
+.expansions p a:link {
 	font-size: 12px;
 	color: #4D0013;
 }
 
-#expand p a:hover {
+.expansions p a:hover {
 	color: ##600017;
 }
 
-#expand p a:visited {
+.expansions p a:visited {
 	color: grey;
 	pointer-events: none;
 	cursor: default;
@@ -141,11 +155,32 @@ section {
 	position: relative;
 }
 
-#toggle:checked ~ #expand {
-	height: 75px;
+/*hardcoded*/
+#toggle0:checked ~ #expand0 {
+	height: 90px;
 }
 
-#toggle:checked ~ label::before {
+#toggle1:checked ~ #expand1 {
+	height: 90px;
+}
+
+#toggle2:checked ~ #expand2 {
+	height: 90px;
+}
+
+#toggle0:checked ~ label::before {
+	content: "-";
+	font-family: 'Gruppo', sans-serif;
+	font-weight: bold;
+}
+
+#toggle1:checked ~ label::before {
+	content: "-";
+	font-family: 'Gruppo', sans-serif;
+	font-weight: bold;
+}
+
+#toggle2:checked ~ label::before {
 	content: "-";
 	font-family: 'Gruppo', sans-serif;
 	font-weight: bold;

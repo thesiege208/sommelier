@@ -53,17 +53,68 @@
                 button.setAttribute('data-toggle', 'modal');
                 button.setAttribute('data-target', '#resModal');
 
-                $('label').click(function() {
-                    if ( $('.result-container').height() != 148) {
-                        console.log($('.result-container').height());
-                        $('.result-container').animate({ height: 150 }, 1000 );
-                        $('#result-img-container').animate({ height: 150 }, 1000 );
+                // Hardcoded
+                var elements = document.getElementsByTagName('label');
+                elements[0].addEventListener('click', function() {
+                    if ( $('#rc0').height() != 148) {
+                        console.log($('#rc0').height());
+                        $('#rc0').animate({ height: 150 }, 1000 );
+                        $('#result-img-container0').animate({ height: 150 }, 1000 );
                     } else {
                         console.log("hello");
-                        $('.result-container').animate({ height: 225 }, 1000 );
-                        $('#result-img-container').animate({ height: 224 }, 1000 );
+                        $('#rc0').animate({ height: 225 }, 1000 );
+                        $('#result-img-container0').animate({ height: 224 }, 1000 );
                     }
                 });
+                elements[1].addEventListener('click', function() {
+                    if ( $('#rc1').height() != 148) {
+                        console.log($('#rc1').height());
+                        $('#rc1').animate({ height: 150 }, 1000 );
+                        $('#result-img-container1').animate({ height: 150 }, 1000 );
+                    } else {
+                        console.log("hello");
+                        $('#rc1').animate({ height: 225 }, 1000 );
+                        $('#result-img-container1').animate({ height: 224 }, 1000 );
+                    }
+                });
+                elements[2].addEventListener('click', function() {
+                    if ( $('#rc2').height() != 148) {
+                        console.log($('#rc2').height());
+                        $('#rc2').animate({ height: 150 }, 1000 );
+                        $('#result-img-container2').animate({ height: 150 }, 1000 );
+                    } else {
+                        console.log("hello");
+                        $('#rc2').animate({ height: 225 }, 1000 );
+                        $('#result-img-container2').animate({ height: 224 }, 1000 );
+                    }
+                });
+
+                // for(var i = 0; i < 3; i++) {
+                //     elements[i].addEventListener('click', function() {
+                //         if ( $('#rc' + i).height() != 148) {
+                //             console.log($('#rc' + i).height());
+                //             $('#rc' + i).animate({ height: 150 }, 1000 );
+                //             $('#result-img-container' + i).animate({ height: 150 }, 1000 );
+                //         } else {
+                //             console.log("hello");
+                //             $('#rc' + i).animate({ height: 225 }, 1000 );
+                //             $('#result-img-container' + i).animate({ height: 224 }, 1000 );
+                //         }                      
+                //     });
+                // }
+
+
+                // $('label').click(function() {
+                //     if ( $('.result-container').height() != 148) {
+                //         console.log($('.result-container').height());
+                //         $('.result-container').animate({ height: 150 }, 1000 );
+                //         $('#result-img-container').animate({ height: 150 }, 1000 );
+                //     } else {
+                //         console.log("hello");
+                //         $('.result-container').animate({ height: 225 }, 1000 );
+                //         $('#result-img-container').animate({ height: 224 }, 1000 );
+                //     }
+                // });
             });
         </script>
     </head>
@@ -93,47 +144,47 @@
                             <h3 class="modal-title">Steak</h3>
                         </div>
                         <div class="modal-body" id="results_list">
-                            <div class="result-container">
-                                <div class="result-contents" id="result-img-container">
+                            <div class="result-container" id="rc0">
+                                <div class="result-contents" id="result-img-container0">
                                     <img id="result-img" src="http://biltmore.s3.amazonaws.com/1254/biltmoreestate-cabsauv.jpg"/>
                                 </div>
                                 <div class="result-contents" id="result-descrip-container">
                                 <h4 id="result-descrip">Cabernet Sauvignon</h4>
-                                <input id="toggle" type="checkbox" unchecked>
-                                <label for="toggle"> Details</label>
-                                <div id="expand">
+                                <input class="toggles" id="toggle0" type="checkbox" unchecked>
+                                <label for="toggle0"> Details</label>
+                                <div class="expansions" id="expand0">
                                     <p><a href="#">ADD TO CART</a></p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis.</p>
                                 </div>
                             </div>
                             </div>
 
-                            <div class="result-container">
-                                <div class="result-contents" id="result-img-container">
+                            <div class="result-container" id="rc1">
+                                <div class="result-contents" id="result-img-container1">
                                     <img id="result-img" src="http://www.line39wines.com/media/8169/L39_PinotNoir_NV-HR.png"/>
                                 </div>
                                 <div class="result-contents" id="result-descrip-container">
                                     <h4 id="result-descrip">Pinot Noir</h4>
-                                    <input id="toggle" type="checkbox" unchecked>
-                                    <label for="toggle"> Details</label>
-                                    <div id="expand">
+                                    <input class="toggles" id="toggle1" type="checkbox" unchecked>
+                                    <label for="toggle1"> Details</label>
+                                    <div class="expansions" id="expand1">
                                         <p><a href="#">ADD TO CART</a></p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="result-container">
-                                <div class="result-contents" id="result-img-container">
+                            <div class="result-container" id="rc2">
+                                <div class="result-contents" id="result-img-container2">
                                     <img id="result-img" src="http://ei.isnooth.com/multimedia/0/5/c/image_94965.jpeg"/>
                                 </div>
                                 <div class="result-contents" id="result-descrip-container">
                                     <h4 id="result-descrip">Chardonnay</h4>
-                                    <input id="toggle" type="checkbox" unchecked>
-                                    <label for="toggle"> Details</label>
-                                    <div id="expand">
+                                    <input class="toggles" id="toggle2" type="checkbox" unchecked>
+                                    <label for="toggle2"> Details</label>
+                                    <div class="expansions" id="expand2">
                                         <p><a href="#">ADD TO CART</a></p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis.</p>
                                     </div>
                                 </div>
                             </div>
