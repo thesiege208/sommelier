@@ -55,40 +55,44 @@
 
                 // Hardcoded
                 var elements = document.getElementsByTagName('label');
+                var animationSpeed = 500;
                 elements[0].addEventListener('click', function() {
                     if ( $('#rc0').height() != 148) {
                         console.log($('#rc0').height());
-                        $('#rc0').animate({ height: 150 }, 1000 );
-                        $('#result-img-container0').animate({ height: 150 }, 1000 );
+                        $('#rc0').animate({ height: 150 }, animationSpeed );
+                        $('#result-img-container0').animate({ height: 150 }, animationSpeed );
                     } else {
                         console.log("hello");
-                        $('#rc0').animate({ height: 225 }, 1000 );
-                        $('#result-img-container0').animate({ height: 224 }, 1000 );
+                        $('#rc0').animate({ height: 225 }, animationSpeed );
+                        $('#result-img-container0').animate({ height: 224 }, animationSpeed );
                     }
                 });
                 elements[1].addEventListener('click', function() {
                     if ( $('#rc1').height() != 148) {
                         console.log($('#rc1').height());
-                        $('#rc1').animate({ height: 150 }, 1000 );
-                        $('#result-img-container1').animate({ height: 150 }, 1000 );
+                        $('#rc1').animate({ height: 150 }, animationSpeed );
+                        $('#result-img-container1').animate({ height: 150 }, animationSpeed );
                     } else {
                         console.log("hello");
-                        $('#rc1').animate({ height: 225 }, 1000 );
-                        $('#result-img-container1').animate({ height: 224 }, 1000 );
+                        $('#rc1').animate({ height: 225 }, animationSpeed );
+                        $('#result-img-container1').animate({ height: 224 }, animationSpeed );
                     }
                 });
                 elements[2].addEventListener('click', function() {
                     if ( $('#rc2').height() != 148) {
                         console.log($('#rc2').height());
-                        $('#rc2').animate({ height: 150 }, 1000 );
-                        $('#result-img-container2').animate({ height: 150 }, 1000 );
+                        $('#rc2').animate({ height: 150 }, animationSpeed );
+                        $('#result-img-container2').animate({ height: 150 }, animationSpeed );
                     } else {
                         console.log("hello");
-                        $('#rc2').animate({ height: 225 }, 1000 );
-                        $('#result-img-container2').animate({ height: 224 }, 1000 );
+                        $('#rc2').animate({ height: 225 }, animationSpeed );
+                        $('#result-img-container2').animate({ height: 224 }, animationSpeed );
                     }
                 });
 
+                $('.cart').click(function() {
+                    this.innerText = "Added to cart.";
+                });
                 // for(var i = 0; i < 3; i++) {
                 //     elements[i].addEventListener('click', function() {
                 //         if ( $('#rc' + i).height() != 148) {
@@ -153,7 +157,7 @@
                                 <input class="toggles" id="toggle0" type="checkbox" unchecked>
                                 <label for="toggle0"> Details</label>
                                 <div class="expansions" id="expand0">
-                                    <p><a href="#">ADD TO CART</a></p>
+                                    <p><a class="cart" href="#">ADD TO CART</a></p>
                                     <p>Cabernet Sauvignon is a full-bodied wine with dark fruit flavors and savory tastes akin to peppers.</p>
                                 </div>
                             </div>
@@ -168,7 +172,7 @@
                                     <input class="toggles" id="toggle1" type="checkbox" unchecked>
                                     <label for="toggle1"> Details</label>
                                     <div class="expansions" id="expand1">
-                                        <p><a href="#">ADD TO CART</a></p>
+                                        <p><a class="cart" href="#">ADD TO CART</a></p>
                                         <p>Pinot Noir carries delicate and light floral flavors with a feel of silk and also contains supple tannins.</p>
                                     </div>
                                 </div>
@@ -183,7 +187,7 @@
                                     <input class="toggles" id="toggle2" type="checkbox" unchecked>
                                     <label for="toggle2"> Details</label>
                                     <div class="expansions" id="expand2">
-                                        <p><a href="#">ADD TO CART</a></p>
+                                        <p><a class="cart" href="#">ADD TO CART</a></p>
                                         <p>Oaked Chardonnays are rich, full-bodied and have additional flavors of vanilla, butter and even caramel. </p>
                                     </div>
                                 </div>
@@ -206,10 +210,10 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
+                        <div class="center-page">
                             <div  id="search" align="center">
                                 <div class="input-group">
-                                    <select name="choice" class="selectpicker form-control" style="width:155px;" data-live-search="true">
+                                    <select name="choice" class="selectpicker form-control" style="width:170px;" data-live-search="true">
                                         <option value="food">pair food with</option>
                                         <option value="wine">pair wine with</option>
                                     </select>

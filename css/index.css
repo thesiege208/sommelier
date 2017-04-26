@@ -103,6 +103,7 @@ h2 {
 
 .input-group {
 	font-family: 'Gruppo', sans-serif;
+	width: ;
 }
 
 .input-group .selectpicker {
@@ -111,13 +112,18 @@ h2 {
 }
 
 .input-group #bar {
-	width: 70%;
+	/*width: 60%;*/
+	width: 400px;
 }
 
 .form-control {
 	color: #4D0013;
 	font-size: 20px;
 	font-weight: bold;
+}
+
+.input-group-btn {
+	float: left;
 }
 
 .btn {
@@ -129,4 +135,14 @@ h2 {
 .btn:hover {
 	background-color: #FCECCB;
 	color: #4D0013;
+}
+
+.input-group option {
+	font-family: 'Gruppo', sans-serif;
+	font-size: 20px;
+}
+
+.center-page {
+	margin-left: 20%;
+	margin-right: 20%
 }
