@@ -58,7 +58,7 @@ h2 {
 .result-contents {
 	position: absolute;
 	height: 100%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 #result-img-container {
@@ -86,5 +86,63 @@ h2 {
 	text-align: center;
 	position: relative;
 	font-size: 30px;
-	top: 20%;
+	top: 30px;
+}
+
+input {
+	display: none;
+	visibility: hidden;
+}
+
+label {
+	padding: 0.5em;
+	text-align: center;
+	margin-top: 30px;/*
+	margin-left: 60px;*/
+	font-size: 14px;
+	color: #666;
+	right: 20px;
+}
+
+label:hover {
+	color: #000;
+}
+
+label::before {
+	font-family: Inconsolata, monaco, monospace;
+	font-weight: bold;
+	content: "+";
+	vertical-align: text-top;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px;
+	background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+}
+
+#expand {
+	height: 0px;
+	overflow: hidden;
+	transition: height 0.5s;
+	color: black;
+	background: white;
+	padding-left: 10px;
+}
+
+#expand p {
+	font-size: 14px;
+	font-color: #666;
+	line-height: 1.5em;
+}
+
+section {
+	position: relative;
+}
+
+#toggle:checked ~ #expand {
+	height: 75px;
+}
+
+#toggle:checked ~ label::before {
+	content: "-";
 }
