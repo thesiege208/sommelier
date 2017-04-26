@@ -9,6 +9,7 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="css/index.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/results.css">
         <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -23,28 +24,126 @@
                 })
              });
         </script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var button = document.getElementById('button');
+                button.setAttribute('data-toggle', 'modal');
+                button.setAttribute('data-target', '#resModal');
+
+                $('label').click(function() {
+                    if ( $('.result-container').height() != 148) {
+                        console.log($('.result-container').height());
+                        $('.result-container').animate({ height: 150 }, 1000 );
+                        $('#result-img-container').animate({ height: 150 }, 1000 );
+                    } else {
+                        console.log("hello");
+                        $('.result-container').animate({ height: 225 }, 1000 );
+                        $('#result-img-container').animate({ height: 224 }, 1000 );
+                    }
+                });
+            });
+        </script>
     </head>
 
     <body>
         <div class="site-wrapper">
+            <div id="listModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">SHOPPING LIST</h2>
+                        </div>
+                        <div class="modal-body" id="list">
+                          <!-- sample layout -->
+                          <!-- <p id="in_content"></p> -->
+                          <!-- <input type="checkbox"> sample ingredient<br /> -->
+                          <!-- <input type="checkbox"> sample ingredient<br /> -->
+                          <!-- <input type="checkbox"> sample ingredient<br /> -->
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-primary" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Steak</h3>
+                        </div>
+                        <div class="modal-body" id="results_list">
+                            <div class="result-container">
+                                <div class="result-contents" id="result-img-container">
+                                    <img id="result-img" src="http://biltmore.s3.amazonaws.com/1254/biltmoreestate-cabsauv.jpg"/>
+                                </div>
+                                <div class="result-contents" id="result-descrip-container">
+                                <h4 id="result-descrip">Cabernet Sauvignon</h4>
+                                <input id="toggle" type="checkbox" unchecked>
+                                <label for="toggle"> Details</label>
+                                <div id="expand">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="result-container">
+                                <div class="result-contents" id="result-img-container">
+                                    <img id="result-img" src="http://www.line39wines.com/media/8169/L39_PinotNoir_NV-HR.png"/>
+                                </div>
+                                <div class="result-contents" id="result-descrip-container">
+                                    <h4 id="result-descrip">Pinot Noir</h4>
+                                    <input id="toggle" type="checkbox" unchecked>
+                                    <label for="toggle"> Details</label>
+                                    <div id="expand">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="result-container">
+                                <div class="result-contents" id="result-img-container">
+                                    <img id="result-img" src="http://ei.isnooth.com/multimedia/0/5/c/image_94965.jpeg"/>
+                                </div>
+                                <div class="result-contents" id="result-descrip-container">
+                                    <h4 id="result-descrip">Chardonnay</h4>
+                                    <input id="toggle" type="checkbox" unchecked>
+                                    <label for="toggle"> Details</label>
+                                    <div id="expand">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-primary" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="container-fluid">
                 <div id="actual">
                     <div id="navbar">
-                        <span class="glyphicon glyphicon-shopping-cart" style="font-size:200%;color:#FCECCB"></span>
+                        <span class="glyphicon glyphicon-shopping-cart" style="font-size:150%;color:#4D0013"></span>
+                        <span class="glyphicon glyphicon-plus" style="font-size:150%;color:#4D0013"></span>
                         <h2>SOMMELIER</h2>
                     </div>
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-8">
                             <div  id="search" align="center">
-                                <form>
-                                    <select name="choice">
+                                <div class="input-group">
+                                    <select name="choice" class="selectpicker form-control" data-live-search="true">
                                         <option value="food">food</option>
                                         <option value="wine">wine</option>
                                     </select>
-                                    <input type="text" name="search" id="bar">
-                                    <input type="submit" value="SEARCH" id="btn">
-                                </form>
+                                    <input type="text" class="form-control" name="search" placeholder="searching..." id="bar">
+                                    <span class="input-group-btn"><button class="btn btn-default" id="button" type="submit">SEARCH</button></span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-2"></div>
@@ -52,10 +151,16 @@
                 </div>
 
                 <div id="landing">
-                    <h1>SOM<br />
-                        MEL<br />
-                        IER
-                    </h1>
+                    <div class="row" id="logo">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8" id="title">
+                            <h1>SOM<br />
+                                MEL<br />
+                                IER
+                            </h1>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
                 </div>                
 
             </div>

@@ -1,5 +1,9 @@
 #landing {
-	background-color: #4D0013;
+/*	background-color: #4D0013;
+*/	background-image: url(http://i.imgur.com/lE5fqYp.gif);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 	position: fixed;
     top: 0px;
     left: 0px;
@@ -8,12 +12,25 @@
     overflow: hidden;
 }
 
+#logo {
+	width: 100%;
+	margin-top: 10%;
+}
+
+#title {
+	margin: 10px;
+}
+
 h1 {
 	color: #FCECCB;
 	font-family: 'Gruppo', sans-serif;
 	font-size: 700%;
-	margin-left: 20%;
-	margin-top: 10%;
+	margin: auto;
+	float: left;
+	padding: 20px;
+	border: 2px solid;
+	border-color: #FCECCB;
+	border-radius: 5px;
 }
 
 #landing.clicked {
@@ -32,8 +49,12 @@ h1 {
 }
 
 #actual {
-	background-color: #FCECCB;
-	position: absolute;
+/*	background-color: #FCECCB;
+*/	background-image: url(http://i.imgur.com/nFu4PHk.gif);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	position: fixed;
     left: 0px;
     min-width: 100%;
     min-height: 100%;
@@ -48,42 +69,57 @@ h1 {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #4D0013;
+	background-color: rgba(252, 236, 203, 0.75);
 	display: inline-block;
+/*	border-bottom: 1px solid;
+	border-color: #4D0013;*/
 }
 
-span {
-	margin: 25px;
+.glyphicon {
+	margin: 25px 10px 25px 10px;
+	float: left;
 }
 
 h2 {
-	color: #FCECCB;
+/*	color: #FCECCB;
+*/	color: #4D0013; 
 	font-family: 'Gruppo', sans-serif;
 	font-size: 300%;
 	text-align: center;
 	float: right;
-	margin: 15px 25px 15px 15px;
-}
-
-form {
-	color: #4D0013;
-	font-family: 'Gruppo', sans-serif;
-	font-size: 24px;
-	display: inline-block;
-	text-align: center;
+	margin: 15px 10px 15px 15px;
 }
 
 #search {
-	margin-top: 40%;
+	margin-top: 30%;
 }
 
-input {
-	border-radius: 5px;
-	border: none;
-	margin: 5px;
+.input-group {
+	font-family: 'Gruppo', sans-serif;
 }
 
-#btn {
+.input-group .selectpicker {
+	width: 20%;
+	text-align: center;
+}
+
+.input-group #bar {
+	width: 80%;
+}
+
+.form-control {
+	color: #4D0013;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.btn {
 	background-color: #4D0013;
 	color: #FCECCB;
+	font-family: 'Gruppo', sans-serif;
+}
+
+.btn:hover {
+	background-color: #FCECCB;
+	color: #4D0013;
 }
