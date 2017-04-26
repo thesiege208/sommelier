@@ -78,6 +78,13 @@ h1 {
 .glyphicon {
 	margin: 25px 10px 25px 10px;
 	float: left;
+	color: #4D0013;
+	font-size:150%;
+}
+
+.glyphicon:hover {
+	color: #FCECCB;
+	cursor: pointer;
 }
 
 h2 {

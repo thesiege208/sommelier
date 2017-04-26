@@ -23,10 +23,32 @@
                     $(this).addClass("clicked");
                 })
              });
-        </script>
 
-        <script type="text/javascript">
             $(document).ready(function(){
+                var list = document.getElementById('cart');
+                list.setAttribute('data-toggle', 'modal');
+                list.setAttribute('data-target', '#listModal');
+
+                $.get("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS?TableName=WineFoodShopping", function(data){
+                    var db = JSON.stringify(data);
+
+                    var parse = JSON.parse(db);
+                    var recipeList = parse.Items;
+
+                    var sh_list = document.getElementById('sh_list');
+                    for (i = 0; i < recipeList.length; i++) {
+
+                        var label= document.createElement("label");
+                        var item = document.createTextNode(" " + recipeList[i].Item);
+                        var checkbox = document.createElement('input');
+                        checkbox.setAttribute('type', 'checkbox');
+                        label.appendChild(checkbox);
+                        label.appendChild(item);
+                        document.getElementById('sh_list').appendChild(label);
+                        document.getElementById('sh_list').appendChild(document.createElement("br"));
+                    }
+                });
+
                 var button = document.getElementById('button');
                 button.setAttribute('data-toggle', 'modal');
                 button.setAttribute('data-target', '#resModal');
@@ -52,14 +74,10 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2 class="modal-title">SHOPPING LIST</h2>
+                            <h3 class="modal-title">SHOPPING LIST</h3>
                         </div>
-                        <div class="modal-body" id="list">
-                          <!-- sample layout -->
-                          <!-- <p id="in_content"></p> -->
-                          <!-- <input type="checkbox"> sample ingredient<br /> -->
-                          <!-- <input type="checkbox"> sample ingredient<br /> -->
-                          <!-- <input type="checkbox"> sample ingredient<br /> -->
+                        <div class="modal-body" id="sh_list_cont">
+                            <div id="sh_list"></div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-outline-primary" data-dismiss="modal">CLOSE</button>
@@ -84,6 +102,7 @@
                                 <input id="toggle" type="checkbox" unchecked>
                                 <label for="toggle"> Details</label>
                                 <div id="expand">
+                                    <p><a href="#">ADD TO CART</a></p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
                                 </div>
                             </div>
@@ -98,6 +117,7 @@
                                     <input id="toggle" type="checkbox" unchecked>
                                     <label for="toggle"> Details</label>
                                     <div id="expand">
+                                        <p><a href="#">ADD TO CART</a></p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
                                     </div>
                                 </div>
@@ -112,6 +132,7 @@
                                     <input id="toggle" type="checkbox" unchecked>
                                     <label for="toggle"> Details</label>
                                     <div id="expand">
+                                        <p><a href="#">ADD TO CART</a></p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta non turpis faucibus lobortis. Curabitur non eros rutrum, gravida felis non, luctus velit.</p>
                                     </div>
                                 </div>
@@ -128,8 +149,8 @@
             <div class="container-fluid">
                 <div id="actual">
                     <div id="navbar">
-                        <span class="glyphicon glyphicon-shopping-cart" style="font-size:150%;color:#4D0013"></span>
-                        <span class="glyphicon glyphicon-plus" style="font-size:150%;color:#4D0013"></span>
+                        <span class="glyphicon glyphicon-shopping-cart" id="cart"></span>
+                        <span class="glyphicon glyphicon-plus" id="add"></span>
                         <h2>SOMMELIER</h2>
                     </div>
                     <div class="row">

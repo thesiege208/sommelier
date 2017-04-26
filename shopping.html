@@ -23,19 +23,11 @@
         $(document).ready(function(){
             $.get("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS?TableName=WineFoodShopping", function(data){
                 var db = JSON.stringify(data);
-                // console.log(db);
 
                 var parse = JSON.parse(db);
                 var recipeList = parse.Items;
 
-                // console.log(recipeList.length);
-                // console.log(recipeList)
-
-                // var in_list = document.getElementById('in_list')
-
-
-                // for (i = 0; i < 3; i++) {
-                var in_list = document.getElementById('in_list');
+                var sh_list = document.getElementById('sh_list');
                 for (i = 0; i < recipeList.length; i++) {
 
                     var label= document.createElement("label");
@@ -44,8 +36,8 @@
                     checkbox.setAttribute('type', 'checkbox');
                     label.appendChild(checkbox);
                     label.appendChild(item);
-                    document.getElementById('in_list').appendChild(label);
-                    document.getElementById('in_list').appendChild(document.createElement("br"));
+                    document.getElementById('sh_list').appendChild(label);
+                    document.getElementById('sh_list').appendChild(document.createElement("br"));
                 }
               });
             });
@@ -61,49 +53,30 @@
             <div class="container-fluid">
                 <div id="actual">
                     <div id="navbar">
-                        <!-- <span class="glyphicon glyphicon-shopping-cart" style="font-size:200%;color:#FCECCB"></span> -->
                         <span class="glyphicon glyphicon-home" style="font-size:200%;color:#FCECCB"></span>
                         <h2>SOMMELIER</h2>
                     </div>
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-8">
-                            <div  id="search" align="center">
-
-
-
-
-
-                            </div>
-
+                            <div  id="search" align="center"></div>
                         </div>
-
-                    <!-- <h2>Ingredients</h2> -->
-
-
                         <div class="col-sm-2"></div>
                     </div>
                 </div>
 
 
             <div>
-                Shopping List
+                <h3>Shopping List</h3>
             </div>
 
-            <div class="modal-body" id="in_list" style='margin-top:20%; text-align:left' align='center'>
+            <div class="modal-body" id="sh_list" style='margin-top:20%; text-align:left' align='center'>
               <!-- sample layout -->
               <!-- <p id="in_content"></p> -->
               <!-- <input type="checkbox">sample ingredient</input> <br /> -->
               <!-- <input type="checkbox"> sample ingredient<br /> -->
               <!-- <input type="checkbox"> sample ingredient<br /> -->
-            </div>
-
-<!--                 <div id="landing">
-                    <h1>SOM<br />
-                        MEL<br />
-                        IER
-                    </h1>
-                </div>    -->             
+            </div>         
 
             </div>
         </div>
