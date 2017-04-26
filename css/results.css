@@ -1,0 +1,90 @@
+#button {
+	width: 100px;
+	height: 50px;
+	background-color: #800020;
+	margin-left: 50%;
+	margin-right: 50%;
+	margin-top: 50px;
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+}
+
+#ingModal, #dirModal {
+	color: #800020;
+	background-color: grey;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	font-family: 'Jura', sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;	
+	color: #800020;
+}
+
+#ingredients h2 {
+	margin-top: 4px;
+}
+
+#in_list {
+	display: inline-block;
+	text-align: left;
+	font-weight: lighter;
+}
+
+.modal-body {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+/* only making directions modal big */
+#ingModal .modal-dialog {
+	width: 50%;
+	height: 70%;
+}
+
+.result-container {
+	height: 150px;
+	position: relative;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.result-contents {
+	position: absolute;
+	height: 100%;
+	overflow: hidden;
+}
+
+#result-img-container {
+	width: 150px;
+	height: 149px;
+	border-right: 1px solid black;
+}
+
+#result-img {
+	width: 95%;
+	height: 95%;
+	object-fit: contain;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#result-descrip-container {
+	display: block;
+	right: 0;
+	width: calc(100% - 150px);
+	position: absolute;
+}
+
+#result-descrip {
+	text-align: center;
+	position: relative;
+	font-size: 30px;
+	top: 20%;
+}
