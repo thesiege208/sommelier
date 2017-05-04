@@ -55,39 +55,68 @@
                 // Hardcoded
                 var elements = document.getElementsByTagName('label');
                 var animationSpeed = 500;
-                elements[0].addEventListener('click', function() {
-                    if ( $('#rc0').height() != 148) {
-                        console.log($('#rc0').height());
-                        $('#rc0').animate({ height: 150 }, animationSpeed );
-                        $('#result-img-container0').animate({ height: 150 }, animationSpeed );
-                    } else {
-                        console.log("hello");
-                        $('#rc0').animate({ height: 225 }, animationSpeed );
-                        $('#result-img-container0').animate({ height: 224 }, animationSpeed );
-                    }
-                });
-                elements[1].addEventListener('click', function() {
-                    if ( $('#rc1').height() != 148) {
-                        console.log($('#rc1').height());
-                        $('#rc1').animate({ height: 150 }, animationSpeed );
-                        $('#result-img-container1').animate({ height: 150 }, animationSpeed );
-                    } else {
-                        console.log("hello");
-                        $('#rc1').animate({ height: 225 }, animationSpeed );
-                        $('#result-img-container1').animate({ height: 224 }, animationSpeed );
-                    }
-                });
-                elements[2].addEventListener('click', function() {
-                    if ( $('#rc2').height() != 148) {
-                        console.log($('#rc2').height());
-                        $('#rc2').animate({ height: 150 }, animationSpeed );
-                        $('#result-img-container2').animate({ height: 150 }, animationSpeed );
-                    } else {
-                        console.log("hello");
-                        $('#rc2').animate({ height: 225 }, animationSpeed );
-                        $('#result-img-container2').animate({ height: 224 }, animationSpeed );
-                    }
-                });
+
+
+                var rc = '#rc';
+                var r_container = '#result-img-container';
+
+                var count = document.getElementById('results_list').childElementCount;
+                
+                for (var k=0; k < count; k++) {
+                    (function() {
+
+                        var curRC = rc + k.toString();
+                        var cur_container = r_container + k.toString();
+                        console.log(cur_container);
+                        elements[k].addEventListener('click', function() {
+                            if ( $(curRC).height() != 148) {
+                                $(curRC).animate({ height: 150 }, animationSpeed );
+                                $(cur_container).animate({ height: 150 }, animationSpeed );
+                            } else {
+                                $(curRC).animate({ height: 225 }, animationSpeed );
+                                $(cur_container).animate({ height: 224 }, animationSpeed );
+                            }
+                        })
+
+
+                    }());
+
+                }
+
+
+                // elements[0].addEventListener('click', function() {
+                //     if ( $('#rc0').height() != 148) {
+                //         console.log($('#rc0').height());
+                //         $('#rc0').animate({ height: 150 }, animationSpeed );
+                //         $('#result-img-container0').animate({ height: 150 }, animationSpeed );
+                //     } else {
+                //         console.log("hello");
+                //         $('#rc0').animate({ height: 225 }, animationSpeed );
+                //         $('#result-img-container0').animate({ height: 224 }, animationSpeed );
+                //     }
+                // });
+                // elements[1].addEventListener('click', function() {
+                //     if ( $('#rc1').height() != 148) {
+                //         console.log($('#rc1').height());
+                //         $('#rc1').animate({ height: 150 }, animationSpeed );
+                //         $('#result-img-container1').animate({ height: 150 }, animationSpeed );
+                //     } else {
+                //         console.log("hello");
+                //         $('#rc1').animate({ height: 225 }, animationSpeed );
+                //         $('#result-img-container1').animate({ height: 224 }, animationSpeed );
+                //     }
+                // });
+                // elements[2].addEventListener('click', function() {
+                //     if ( $('#rc2').height() != 148) {
+                //         console.log($('#rc2').height());
+                //         $('#rc2').animate({ height: 150 }, animationSpeed );
+                //         $('#result-img-container2').animate({ height: 150 }, animationSpeed );
+                //     } else {
+                //         console.log("hello");
+                //         $('#rc2').animate({ height: 225 }, animationSpeed );
+                //         $('#result-img-container2').animate({ height: 224 }, animationSpeed );
+                //     }
+                // });
 
                 $('.cart').click(function() {
                     $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
