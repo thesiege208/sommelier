@@ -8,7 +8,7 @@
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="css/index.css" rel="stylesheet">
+        <link href="css/add.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -127,142 +127,123 @@
                 <div id="actual">
                     <div id="navbar">
                         <!-- <span class="glyphicon glyphicon-shopping-cart" style="font-size:200%;color:#FCECCB"></span> -->
-                        <span class="glyphicon glyphicon-home" style="font-size:200%;color:#FCECCB"></span>
+                        <a href="index.html"><span class="glyphicon glyphicon-home" id="home"></span></a>
                         <h2>SOMMELIER</h2>
                     </div>
                     <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
-                            <div  id="search" align="center">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4" id="title">ADD FOOD OR WINE</div>
+                      <div class="col-sm-4"></div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <div class="form-group">Item:
+                          <input type="text" class="form-name" id='Rname' placeholder=" Enter name">
+                        </div>
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <div class="form-group">Image:  
+                          <input type="text" class="form-url" id="url" placeholder=" Enter image url">
+                        </div>
+                        <!-- <div id="img"><button type="button" class="btn btn-outline-primary">UPLOAD IMAGE</button></div> -->
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
 
 
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <div class="form-group">Type:  
+                        <!-- <input type="text" class="form-url" id="info" placeholder="Enter comment"> -->
+                                      <select name="choice" id='type'>
+                                          <option value="food">food</option>
+                                          <option value="wine">wine</option>
+                                      </select>
+                        </div>
+                        <!-- <div id="img"><button type="button" class="btn btn-outline-primary">UPLOAD IMAGE</button></div> -->
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
 
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <div class="form-group">Info:  
+                          <input type="text" class="form-url" id="info" placeholder=" Enter one-sentence description">
+                        </div>
+                        <!-- <div id="img"><button type="button" class="btn btn-outline-primary">UPLOAD IMAGE</button></div> -->
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
 
-
-                            </div>
-
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <div class="form-group" id='ilist2'>Pairings:  
+                        <input type="text" class="form-ing" id="ingres" placeholder=" Enter items separated by commas">
                         </div>
 
+                        <!-- <button id='addi' onclick='addI()' class="btn btn-outline-primary">ADD INGREDIENT</button> -->
 
+                        <script >
+                          // function addI() {
+                          //   var mi = document.createElement("input");
+                          //   mi.setAttribute('class', 'form-ing');
+                          //   mi.setAttribute('type', 'text');
+                          //   mi.setAttribute('placeholder', 'Enter ingredient');
+                          //   document.getElementById('ilist2').appendChild(mi);
+                          // }
+                        </script>
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
 
-                        <div class="col-sm-2"></div>
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+  <!--                       <div class="form-group" id='dlist2'>Pairing Image Link:  
+                        <input type="text" class="form-inst" id="direcs" placeholder="Enter Pairing Image Link">
+                        </div>
+   -->
+                        <!-- <button id='addd' onclick='addD()' class="btn btn-outline-primary">ADD INSTRUCTION</button> -->
+
+                        <script >
+                          // function addD() {
+                          //   var mi = document.createElement("input");
+                          //   mi.setAttribute('class', 'form-inst');
+                          //   mi.setAttribute('type', 'text');
+                          //   mi.setAttribute('placeholder', 'Enter instruction');
+                          //   document.getElementById('dlist2').appendChild(mi);
+                          // }
+                        </script>
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <button type="submit" id="submit" class="btn btn-outline-primary">SUBMIT</button>
+                      </div>
+                      <div class="col-sm-4"></div>
                     </div>
                 </div>
-
-
-
-            <div class="modal-body" id="in_list" style='margin-top:20%; margin-left:10%;' align='left'>
-                <div align='center'>Add Food or Wine</div>
-            </br>
 
                 <div class="container-fluid">
                   <div class="row">
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-6">
-                    <div class="form-group">Food name:
-                    <input type="text" class="form-name" id='Rname' placeholder="Enter food or wine name">
+                    <div class="col-sm-12">
+                      <div id="footer">© TEAM SANS. CS160 SPRING 2017. ALL RIGHTS RESERVED.</div>
                     </div>
-                  </div>
-                  <div class="col-sm-3"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                      <div class="form-group">Image Link:  
-                      <input type="text" class="form-url" id="url" placeholder="Enter url for food or wine image">
-                      </div>
-                      <!-- <div id="img"><button type="button" class="btn btn-outline-primary">UPLOAD IMAGE</button></div> -->
-                    </div>
-                    <div class="col-sm-3"></div>
-                  </div>
-
-
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                      <div class="form-group">Type:  
-                      <!-- <input type="text" class="form-url" id="info" placeholder="Enter comment"> -->
-                                    <select name="choice" id='type'>
-                                        <option value="food">food</option>
-                                        <option value="wine">wine</option>
-                                    </select>
-                      </div>
-                      <!-- <div id="img"><button type="button" class="btn btn-outline-primary">UPLOAD IMAGE</button></div> -->
-                    </div>
-                    <div class="col-sm-3"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                      <div class="form-group">Info:  
-                      <input type="text" class="form-url" id="info" placeholder="Enter comment">
-                      </div>
-                      <!-- <div id="img"><button type="button" class="btn btn-outline-primary">UPLOAD IMAGE</button></div> -->
-                    </div>
-                    <div class="col-sm-3"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                      <div class="form-group" id='ilist2'>Pairing Wine/Food:  
-                      <input type="text" class="form-ing" id="ingres" placeholder="Enter pairing wine or food">
-                      </div>
-
-                      <!-- <button id='addi' onclick='addI()' class="btn btn-outline-primary">ADD INGREDIENT</button> -->
-
-                      <script >
-                        // function addI() {
-                        //   var mi = document.createElement("input");
-                        //   mi.setAttribute('class', 'form-ing');
-                        //   mi.setAttribute('type', 'text');
-                        //   mi.setAttribute('placeholder', 'Enter ingredient');
-                        //   document.getElementById('ilist2').appendChild(mi);
-                        // }
-                      </script>
-                    </div>
-                    <div class="col-sm-3"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-<!--                       <div class="form-group" id='dlist2'>Pairing Image Link:  
-                      <input type="text" class="form-inst" id="direcs" placeholder="Enter Pairing Image Link">
-                      </div>
- -->
-                      <!-- <button id='addd' onclick='addD()' class="btn btn-outline-primary">ADD INSTRUCTION</button> -->
-
-                      <script >
-                        // function addD() {
-                        //   var mi = document.createElement("input");
-                        //   mi.setAttribute('class', 'form-inst');
-                        //   mi.setAttribute('type', 'text');
-                        //   mi.setAttribute('placeholder', 'Enter instruction');
-                        //   document.getElementById('dlist2').appendChild(mi);
-                        // }
-                      </script>
-                    </div>
-                    <div class="col-sm-3"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                      <button type="submit" id="submit" class="btn btn-outline-primary">SUBMIT</button>
-                    </div>
-                    <div class="col-sm-3"></div>
                   </div>
                 </div>
-
-
-
-            </div>
-
-          
-
             </div>
         </div>
     </body>

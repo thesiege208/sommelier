@@ -98,12 +98,12 @@ h2 {
 }
 
 #search {
-	margin-top: 30%;
+	margin-top: 20%;
+	margin-bottom: 50px;
 }
 
 .input-group {
 	font-family: 'Gruppo', sans-serif;
-	width: ;
 }
 
 .input-group .selectpicker {
@@ -144,5 +144,84 @@ h2 {
 
 .center-page {
 	margin-left: 20%;
-	margin-right: 20%
+	margin-right: 20%;
+}
+
+.row {
+	margin-left: 15px;
+	margin-right: -35px;
+	font-family: 'Gruppo', sans-serif;
+	color: #4D0013;
+}
+
+#pop_name {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#popular .col-sm-2 {
+	width: 16%;
+	height: 150px;
+	margin: 20px 0 20px 0;
+}
+
+.tile {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #4D0013;
+	border-radius: 5px;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: 50% 100%;
+	background-position: left top, right top;
+	background-color: #FFF;
+}
+
+.filter {
+	background-color: rgba(77, 0, 19, .6);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 5px;
+	overflow: hidden;
+	color: #FFF;
+	font-size: 24px;
+	text-align: center;
+}
+
+#one {
+	background-image: url(http://cdn.iowagirleats.com/wp-content/uploads/2015/06/Perfect-Grilled-Steak-with-Herb-Butter-iowagirleats-03.jpg), url(http://biltmore.s3.amazonaws.com/1254/biltmoreestate-cabsauv.jpg);
+}
+
+#two {
+	background-image: url(http://www.themediterraneandish.com/wp-content/uploads/2016/05/One-Pan-Baked-Halibut-Recipe-7.jpg), url(http://biltmore.s3.amazonaws.com/1256/biltmoreestate-chardonnay.jpg);
+}
+
+#three {
+	background-image: url(http://i.huffpost.com/gadgets/slideshows/436426/slide_436426_5726902_free.jpg), url(http://f1.wine-searcher.net/images/labels/39/50/ponzi-vineyards-tavola-pinot-noir-willamette-valley-usa-10153950.jpg);
+}
+
+#four {
+	background-image: url(https://s-media-cache-ak0.pinimg.com/736x/78/8b/25/788b25a582bbcdf18bfbf3ce39536dbb.jpg), url(https://excelsiorwineblog.files.wordpress.com/2012/09/sauvignon-blanc-no-year.jpg);
+}
+
+#five {
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_M3Fn3TGpQZRlPYemZ3lTjZlEewGipfTJVPVfOyPm2739bjN_aA), url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQb0kn4WjLlRheQRehmFS8o6_kjCUF_puiKpXBYku0heOo_TirB);
+}
+
+#six {
+	background-image: url(http://bloximages.newyork1.vip.townnews.com/feastmagazine.com/content/tncms/assets/v3/editorial/c/4b/c4b64326-512c-11e2-a9ce-0019bb30f31a/50de00a43ca73.image.jpg?resize=500%2C750), url(http://www.lcbo.com/content/dam/lcbo/products/365924.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg);
+}
+
+#footer {
+	color: #a8818a;
+	font-size: 12px;
+	font-family: 'Gruppo', sans-serif;
+	bottom: 0;
+	position: fixed;
+	margin-left: 35%;
 }
