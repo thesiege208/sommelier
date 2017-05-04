@@ -14,7 +14,6 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
         <script type="text/javascript">
             $(function () {
                 var $landing = $("#landing"),
@@ -91,8 +90,30 @@
                 });
 
                 $('.cart').click(function() {
+                    $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
+
+                        "type": "POST", 
+                        "data": {
+                            "TableName": "WineFoodShopping",
+                            //New item information to be posted 
+                            "Item": {
+                                "Item": "CS160", 
+
+                                }}}), 
+                    function(data, status){
+                    alert(status);
+                    });
+
+
+
+
+
+
                     this.innerText = "Added to cart.";
+
                 });
+
+
                 // for(var i = 0; i < 3; i++) {
                 //     elements[i].addEventListener('click', function() {
                 //         if ( $('#rc' + i).height() != 148) {
@@ -120,6 +141,145 @@
                 //     }
                 // });
             });
+        </script>
+        <script>
+
+        // This function returns a tuple containing the pairing info
+        // which is (Pair1Name, Pair1Image, Pair1Info)
+        function findPairingInfo(pName, resList) {
+
+
+            var listRes;
+            $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
+            "type": "QUERY",
+            "data": {
+                "TableName": "WineFood",
+                //Condition for item
+                "FilterExpression": "#y = :y",
+                //Variable for attribute name (think of key). You have to preface the variables with #
+                "ExpressionAttributeNames": {
+                    "#y": "Item",
+                },
+                //Variable for value to attribute. You have to preface the variables with :
+                "ExpressionAttributeValues": {
+                    ":y": pName
+                }
+            }
+
+            }),
+            //success callback
+            function(data, status) {
+                // console.log(pName)
+                var data = JSON.parse(JSON.stringify(data))["Items"][0];
+
+                // console.log(data)
+
+                if (data == null) {
+                    return null;
+                }else if (data.length != 0) {
+                    var rName = data["Item"];
+                    var rImage = data["Picture"];
+                    var rInfo = data["Info"];
+                    console.log('good');     
+                    listRes =  [rName, rImage, rInfo];
+                    resList.push(listRes);
+               
+                } else {
+                    return null;
+                }
+
+
+
+            }).fail(function(res) {
+                console.log(res)
+            })
+
+            // console.log(listRes);
+            return listRes;
+
+        }
+
+        function clickSearch() {
+            
+
+            var searchName = document.getElementById("bar").value;
+            // console.log('gg');
+            // console.log(searchName);
+            var pList = "";
+
+            $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
+                "type": "QUERY",
+                "data": {
+                    "TableName": "WineFood",
+                    //Condition for item
+                    "FilterExpression": "#y = :y",
+                    //Variable for attribute name (think of key). You have to preface the variables with #
+                    "ExpressionAttributeNames": {
+                        "#y": "Item",
+                    },
+                    //Variable for value to attribute. You have to preface the variables with :
+                    "ExpressionAttributeValues": {
+                        ":y": searchName
+                    }
+                }
+            }),
+            //success callback
+            function(data, status) {
+                
+                var data = JSON.parse(JSON.stringify(data))["Items"][0];
+                // console.log(data);
+
+                var targetName = data["Item"];
+                var targetImage = data["Picture"];
+                var targetInfo = data["Info"];
+                var pairings = data["Pairings"];                
+                // console.log(data["Items"][0]["Item"]);
+
+                console.log('targerName:' + targetName);
+                console.log('targetImage:' + targetImage);
+                console.log('targetInfo:' + targetInfo);
+                // console.log(pairings);
+                // var targ
+
+
+                pList = pairings.split(", ");
+                // console.log(pList)
+
+                var resList = [0]
+                for (i=0; i<pList.length; i++) {
+                    var curPair = findPairingInfo(pList[i], resList)
+                    // console.log(curPair)
+                    // if (curPair == null) {
+                        
+
+                    // } else {
+                    //     console.log('gg');
+                    //     resList.push(curPair);
+                    // }
+                }
+                // resList = resList.slice(1, resList.length);
+                console.log('Pairing Content List');
+                console.log(resList);
+
+
+
+
+
+                // Alan's code start here
+                // variable targetName: the name string of our search
+                // varablle targetImage: the picture link of our search
+                // varaible targetInfo: the description of our search
+                // varaible resList: a list of tuples []
+
+
+            }).fail(function(res) {
+                console.log(res)
+            })
+            
+            // console.log(pList);
+
+        }
+
         </script>
     </head>
 
@@ -218,7 +378,7 @@
                                         <option value="wine">pair wine with</option>
                                     </select>
                                     <input type="text" class="form-control" name="search" placeholder="searching..." id="bar">
-                                    <span class="input-group-btn"><button class="btn btn-default" id="button" type="submit">SEARCH</button></span>
+                                    <span class="input-group-btn"><button class="btn btn-default" id="button" type="submit" onclick="clickSearch()">SEARCH</button></span>
                                 </div>
                             </div>
                         </div>
