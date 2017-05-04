@@ -172,13 +172,13 @@
             });
         </script>
         <script>
+        var gg;
 
         // This function returns a tuple containing the pairing info
         // which is (Pair1Name, Pair1Image, Pair1Info)
         function findPairingInfo(pName, resList) {
 
 
-            var listRes;
             $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
             "type": "QUERY",
             "data": {
@@ -198,11 +198,7 @@
             }),
             //success callback
             function(data, status) {
-                // console.log(pName)
                 var data = JSON.parse(JSON.stringify(data))["Items"][0];
-
-                // console.log(data)
-
                 if (data == null) {
                     return null;
                 }else if (data.length != 0) {
@@ -210,9 +206,7 @@
                     var rImage = data["Picture"];
                     var rInfo = data["Info"];
                     console.log('good');     
-                    listRes =  [rName, rImage, rInfo];
-                    resList.push(listRes);
-               
+                    resList.push({'name': rName, 'image': rImage, 'info': rInfo});
                 } else {
                     return null;
                 }
@@ -222,10 +216,6 @@
             }).fail(function(res) {
                 console.log(res)
             })
-
-            // console.log(listRes);
-            return listRes;
-
         }
 
         function clickSearch() {
@@ -235,7 +225,7 @@
             // console.log('gg');
             // console.log(searchName);
             var pList = "";
-
+            var resList = [];
             $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
                 "type": "QUERY",
                 "data": {
@@ -274,22 +264,48 @@
                 pList = pairings.split(", ");
                 // console.log(pList)
 
-                var resList = [0]
                 for (i=0; i<pList.length; i++) {
-                    var curPair = findPairingInfo(pList[i], resList)
-                    // console.log(curPair)
-                    // if (curPair == null) {
-                        
+                    var pName = pList[i];
+                    $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
+                        "type": "QUERY",
+                        "data": {
+                            "TableName": "WineFood",
+                            //Condition for item
+                            "FilterExpression": "#y = :y",
+                            //Variable for attribute name (think of key). You have to preface the variables with #
+                            "ExpressionAttributeNames": {
+                                "#y": "Item",
+                            },
+                            //Variable for value to attribute. You have to preface the variables with :
+                            "ExpressionAttributeValues": {
+                                ":y": pName
+                            }
+                        }
 
-                    // } else {
-                    //     console.log('gg');
-                    //     resList.push(curPair);
-                    // }
+                        }),
+                        //success callback
+                        function(data, status) {
+                            var data = JSON.parse(JSON.stringify(data))["Items"][0];
+                            if (data == null) {
+                                return null;
+                            }else if (data.length != 0) {
+                                var rName = data["Item"];
+                                var rImage = data["Picture"];
+                                var rInfo = data["Info"];
+                                console.log('good');     
+                                resList.push({'name': rName, 'image': rImage, 'info': rInfo});
+                            } else {
+                                return null;
+                            }
+
+
+
+                        }).fail(function(res) {
+                            console.log(res)
+                        })
                 }
                 // resList = resList.slice(1, resList.length);
-                console.log('Pairing Content List');
                 console.log(resList);
-
 
 
 
@@ -305,9 +321,25 @@
                 console.log(res)
             })
             
-            // console.log(pList);
+
+            setTimeout(function(){
+                console.log(resList.length);
+
+                // 
+
+                console.log(resList[0]);
+
+
+
+            }, 1000)
+
 
         }
+
+
+
+
+
 
         </script>
     </head>
