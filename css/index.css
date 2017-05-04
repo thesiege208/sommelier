@@ -180,7 +180,7 @@ h2 {
 }
 
 .filter {
-	background-color: rgba(77, 0, 19, .5);
+	background-color: rgba(186, 131, 106, .7);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -188,7 +188,7 @@ h2 {
 	right: 0;
 	border-radius: 5px;
 	overflow: hidden;
-	color: #FCECCB;
+	color: #FFF;
 	font-size: 24px;
 	text-align: center;
 }
