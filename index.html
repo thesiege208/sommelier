@@ -265,12 +265,12 @@
 
 
 
-                // Alan's code start here
+                // Alan's code start here: to fill the content into the box
                 // variable targetName: the name string of our search
                 // varablle targetImage: the picture link of our search
                 // varaible targetInfo: the description of our search
-                // varaible resList: a list of tuples []
-
+                // varaible resList: a list of tuples [(Pair1Name, Pair1Image, Pair1Info), (Pair2Name, Pair2Image, Pair2Info) ...]
+                // ***Special Note*** Because of javascript issue, the actual content of the resList start from index 1 instead of index 0
 
             }).fail(function(res) {
                 console.log(res)
