@@ -81,6 +81,9 @@ h3 {
 	right: 0;
 	width: calc(100% - 150px);
 	position: absolute;
+	background-color: #FFF;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #result-descrip {
