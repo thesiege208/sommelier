@@ -53,35 +53,7 @@
                 button.setAttribute('data-target', '#resModal');
 
                 // Hardcoded
-                var elements = document.getElementsByTagName('label');
-                var animationSpeed = 500;
-
-
-                var rc = '#rc';
-                var r_container = '#result-img-container';
-
-                var count = document.getElementById('results_list').childElementCount;
                 
-                for (var k=0; k < count; k++) {
-                    (function() {
-
-                        var curRC = rc + k.toString();
-                        var cur_container = r_container + k.toString();
-                        console.log(cur_container);
-                        elements[k].addEventListener('click', function() {
-                            if ( $(curRC).height() != 148) {
-                                $(curRC).animate({ height: 150 }, animationSpeed );
-                                $(cur_container).animate({ height: 150 }, animationSpeed );
-                            } else {
-                                $(curRC).animate({ height: 225 }, animationSpeed );
-                                $(cur_container).animate({ height: 224 }, animationSpeed );
-                            }
-                        })
-
-
-                    }());
-
-                }
 
 
                 // elements[0].addEventListener('click', function() {
@@ -221,11 +193,15 @@
         function clickSearch() {
             
 
-            var searchName = document.getElementById("bar").value;
+            var searchName = document.getElementById("bar").value.toLowerCase();
             // console.log('gg');
             // console.log(searchName);
             var pList = "";
             var resList = [];
+            var targetName;
+            var targetImage;
+            var targetInfo;
+            var pairings;
             $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
                 "type": "QUERY",
                 "data": {
@@ -248,13 +224,13 @@
                 var data = JSON.parse(JSON.stringify(data))["Items"][0];
                 // console.log(data);
 
-                var targetName = data["Item"];
-                var targetImage = data["Picture"];
-                var targetInfo = data["Info"];
-                var pairings = data["Pairings"];                
+                targetName = data["Item"];
+                targetImage = data["Picture"];
+                targetInfo = data["Info"];
+                pairings = data["Pairings"];                
                 // console.log(data["Items"][0]["Item"]);
 
-                console.log('targerName:' + targetName);
+                console.log('targetName:' + targetName);
                 console.log('targetImage:' + targetImage);
                 console.log('targetInfo:' + targetInfo);
                 // console.log(pairings);
@@ -306,7 +282,8 @@
                 }
                 // resList = resList.slice(1, resList.length);
                 console.log(resList);
-
+                console.log("targetName");
+                console.log(targetName);
 
 
 
@@ -323,16 +300,111 @@
             
 
             setTimeout(function(){
+                console.log("hello");
                 console.log(resList.length);
 
-                // 
 
-                console.log(resList[0]);
+                var modal = document.getElementById('results_list');
+
+                var title = document.getElementById('results-title');
+                title.innerText = targetName.charAt(0).toUpperCase() + targetName.slice(1).toLowerCase(); // only first letter capital
+
+                for (var i = 0; i < resList.length; i++) {
+                    // results container 
+                    var container = document.createElement('div');
+                    container.setAttribute('class', 'result-container');
+                    var id = 'rc' + i.toString();
+                    container.setAttribute('id', id);
+
+                    // img container
+                    var imgContainer = document.createElement('div');
+                    imgContainer.setAttribute('class','result-contents');
+                    var img_id = 'result-img-container' + i.toString();
+                    imgContainer.setAttribute('id', img_id);
+                    // image
+                    var image = document.createElement('img');
+                    image.setAttribute('id','result-img');
+                    image.setAttribute('src',resList[i]['image']);
+                    imgContainer.appendChild(image);
+                    container.appendChild(imgContainer);
+
+                    // result contents
+                    var descripContainer = document.createElement('div');
+                    descripContainer.setAttribute('class','result-contents');
+                    descripContainer.setAttribute('id', 'result-descrip-container');
+                    // h4
+                    var header = document.createElement('h4');
+                    header.setAttribute('id','result-descrip');
+                    header.innerText = resList[i]['name'];
+                    descripContainer.appendChild(header);
+                    // input
+                    var input = document.createElement('input');
+                    input.setAttribute('class','toggles');
+                    var input_id = 'toggle' + i.toString();
+                    input.setAttribute('id',input_id);
+                    input.setAttribute('type','checkbox');
+                    input.checked = false;
+                    descripContainer.appendChild(input);
+                    // label
+                    var label = document.createElement('label');
+                    label.setAttribute('for',input_id);
+                    label.innerText = ' Details';
+                    descripContainer.appendChild(label);
+
+                    // expansions div
+                    var expansions = document.createElement('div');
+                    expansions.setAttribute('class','expansions');
+                    var exp_id = 'expand' + i.toString();
+                    expansions.setAttribute('id',exp_id);
+                    // cart
+                    var cart_p = document.createElement('p');
+                    var link = document.createElement('a');
+                    link.setAttribute('class','cart');
+                    link.setAttribute('href','#');
+                    link.innerText = 'ADD TO CART';
+                    cart_p.appendChild(link);
+                    // descrip
+                    var descrip = document.createElement('p');
+                    descrip.innerText = resList[i]['info'];
+                    
+                    expansions.appendChild(cart_p);
+                    expansions.appendChild(descrip);
+                    descripContainer.appendChild(expansions);
+                    container.appendChild(descripContainer);
+                    modal.appendChild(container);
+                }
+                var elements = document.getElementsByTagName('label');
+                var animationSpeed = 500;
 
 
+                var rc = '#rc';
+                var r_container = '#result-img-container';
 
+                var count = document.getElementById('results_list').childElementCount;
+                for (var k=0; k < count; k++) {
+                    (function() {
+                        var curRC = rc + k.toString();
+                        var cur_container = r_container + k.toString();
+                        console.log(cur_container);
+                        elements[k].addEventListener('click', function() {
+                            if ( $(curRC).height() != 148) {
+                                $(curRC).animate({ height: 150 }, animationSpeed );
+                                $(cur_container).animate({ height: 150 }, animationSpeed );
+                            } else {
+                                $(curRC).animate({ height: 225 }, animationSpeed );
+                                $(cur_container).animate({ height: 224 }, animationSpeed );
+                            }
+                        })
+
+
+                    }());
+
+                }
             }, 1000)
 
+            
+            
+          
 
         }
 
@@ -366,10 +438,10 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title">Steak</h3>
+                            <h3 class="modal-title" id="results-title">Steak</h3>
                         </div>
                         <div class="modal-body" id="results_list">
-                            <div class="result-container" id="rc0">
+                            <!-- <div class="result-container" id="rc0">
                                 <div class="result-contents" id="result-img-container0">
                                     <img id="result-img" src="http://biltmore.s3.amazonaws.com/1254/biltmoreestate-cabsauv.jpg"/>
                                 </div>
@@ -412,7 +484,7 @@
                                         <p>Oaked Chardonnays are rich, full-bodied and have additional flavors of vanilla, butter and even caramel. </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                         <div class="modal-footer">
