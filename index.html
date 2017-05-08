@@ -14,6 +14,36 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+                function clickAdd(curname) {
+                    $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
+
+                        "type": "POST", 
+                        "data": {
+                            "TableName": "WineFoodShopping",
+                            //New item information to be posted 
+                            "Item": {
+                                "Item": String(curname.id),
+
+                                }}}), 
+                    function(data, status){
+                    alert(status);
+                    });
+                    // console.log("???")
+
+                    // console.log(curname.id)
+
+                    document.getElementById(curname.id).innerText = 'ADDED TO CART!'
+
+
+
+
+                }
+
+
+
+
+        </script>
         <script type="text/javascript">
             $(function () {
                 var $landing = $("#landing"),
@@ -52,6 +82,7 @@
                 button.setAttribute('data-toggle', 'modal');
                 button.setAttribute('data-target', '#resModal');
 
+            // $('.modal-content').addEventListener('click', function() {})
                 // Hardcoded
                 
 
@@ -90,29 +121,29 @@
                 //     }
                 // });
 
-                $('.cart').click(function() {
-                    $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
+                // $('.cart').click(function() {
+                //     $.post("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS", JSON.stringify({
 
-                        "type": "POST", 
-                        "data": {
-                            "TableName": "WineFoodShopping",
-                            //New item information to be posted 
-                            "Item": {
-                                "Item": "CS160", 
+                //         "type": "POST", 
+                //         "data": {
+                //             "TableName": "WineFoodShopping",
+                //             //New item information to be posted 
+                //             "Item": {
+                //                 "Item": "CS160", 
 
-                                }}}), 
-                    function(data, status){
-                    alert(status);
-                    });
-
-
+                //                 }}}), 
+                //     function(data, status){
+                //     alert(status);
+                //     });
 
 
 
 
-                    this.innerText = "ADDED TO CART";
 
-                });
+
+                //     this.innerText = "ADDED TO CART";
+
+                // });
 
 
                 // for(var i = 0; i < 3; i++) {
@@ -214,7 +245,7 @@
                     },
                     //Variable for value to attribute. You have to preface the variables with :
                     "ExpressionAttributeValues": {
-                        ":y": searchName
+                        ":y": searchName.toLowerCase()
                     }
                 }
             }),
@@ -361,7 +392,13 @@
                     var link = document.createElement('a');
                     link.setAttribute('class','cart');
                     link.setAttribute('href','#');
+                    link.setAttribute('id', resList[i]['name'])
                     link.innerText = 'ADD TO CART';
+
+
+
+                    link.setAttribute('onclick', 'clickAdd(' + String(resList[i]['name']) + ')');
+
                     cart_p.appendChild(link);
                     // descrip
                     var descrip = document.createElement('p');
@@ -400,7 +437,7 @@
                     }());
 
                 }
-            }, 3000)
+            }, 1000)
 
             
             
@@ -420,7 +457,7 @@
         <div class="site-wrapper">
             <div id="listModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content", id='modal-content'>
                         <div class="modal-header">
                             <h3 class="modal-title">SHOPPING LIST</h3>
                         </div>
