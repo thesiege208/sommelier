@@ -106,14 +106,14 @@ h2 {
 	font-family: 'Gruppo', sans-serif;
 }
 
-.input-group .selectpicker {
-	width: 20%;
+.input-group {
+	width: 100%;
 	text-align: center;
 }
 
 .input-group #bar {
-	/*width: 60%;*/
-	width: 400px;
+	width: 90%;
+	float: left;
 }
 
 .form-control {
