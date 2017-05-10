@@ -34,16 +34,10 @@
                     // console.log(curname.id)
 
                     document.getElementById(curname.id).innerText = 'ADDED TO CART!'
-
-
-
-
                 }
-
-
-
-
         </script>
+
+        <!-- landing page click animation -->
         <script type="text/javascript">
             $(function () {
                 var $landing = $("#landing"),
@@ -83,6 +77,7 @@
                 button.setAttribute('data-target', '#resModal');
             });
         </script>
+        
         <script>
         var gg;
 
@@ -348,18 +343,7 @@
 
                 }
             }, 1000)
-
-            
-            
-          
-
         }
-
-
-
-
-
-
         </script>
     </head>
 
@@ -398,16 +382,16 @@
                 </div>
             </div>
 
-            <div class="container-fluid">
+            <div class="container">
                 <div id="actual">
                     <div id="navbar">
                         <span class="glyphicon glyphicon-shopping-cart" id="cart"></span>
-                        <a href="add.html"><span class="glyphicon glyphicon-plus" id="add"></span></a>
+                        <a href="add.html"><span class="glyphicon glyphicon-plus" id="add" style="margin-left:50px"></span></a>
                         <h2>SOMMELIER</h2>
                     </div>
                     <div class="row">
                         <div class="col-sm-2"></div>
-                        <div class="center-page">
+                        <div class="col-sm-8" id="center-page">
                             <div  id="search" align="center">
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="search" placeholder="searching..." id="bar">
@@ -419,61 +403,63 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12" id="pop_name">>>> POPULAR PAIRINGS <<<</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="pop_name">>>> POPULAR PAIRINGS <<<</div>
                     </div>
 
-                    <div class="row" id="popular">
-                        <div class="col-sm-2">
-                            <div class="tile" id="one">
-                                <div class="filter">
-                                    <p>steak<br />
-                                    +<br />
-                                    cabernet sauvignon<br /></p>
+                    <div class="container-fluid" id="tiles">
+                        <div class="row" id="popular">
+                            <div class="col-sm-2">
+                                <div class="tile" id="one">
+                                    <div class="filter">
+                                        <p>steak<br />
+                                        +<br />
+                                        cabernet sauvignon<br /></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="tile" id="two">
-                                <div class="filter">
-                                    halibut<br />
-                                    +<br />
-                                    chardonnay<br />
+                            <div class="col-sm-2">
+                                <div class="tile" id="two">
+                                    <div class="filter">
+                                        halibut<br />
+                                        +<br />
+                                        chardonnay<br />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="tile" id="three">
-                                <div class="filter">
-                                    crab<br />
-                                    +<br />
-                                    pinot noir<br />
+                            <div class="col-sm-2">
+                                <div class="tile" id="three">
+                                    <div class="filter">
+                                        crab<br />
+                                        +<br />
+                                        pinot noir<br />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="tile" id="four">
-                                <div class="filter">
-                                    lamb<br />
-                                    +<br />
-                                    sauvignon blanc<br />
+                            <div class="col-sm-2">
+                                <div class="tile" id="four">
+                                    <div class="filter">
+                                        lamb<br />
+                                        +<br />
+                                        sauvignon blanc<br />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="tile" id="five">
-                                <div class="filter">
-                                    shrimp<br />
-                                    +<br />
-                                    vinho verde<br />
+                            <div class="col-sm-2">
+                                <div class="tile" id="five">
+                                    <div class="filter">
+                                        shrimp<br />
+                                        +<br />
+                                        vinho verde<br />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="tile" id="six">
-                                <div class="filter">
-                                    duck<br />
-                                    +<br />
-                                    beaujolais<br />
+                            <div class="col-sm-2">
+                                <div class="tile" id="six">
+                                    <div class="filter">
+                                        duck<br />
+                                        +<br />
+                                        beaujolais<br />
+                                    </div>
                                 </div>
                             </div>
                         </div>

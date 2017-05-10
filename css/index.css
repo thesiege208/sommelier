@@ -1,3 +1,12 @@
+body {
+	min-height: 100%;
+	min-width: 100%;
+	background-image: url(http://i.imgur.com/nFu4PHk.gif);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
 #landing {
 /*	background-color: #4D0013;
 */	background-image: url(http://i.imgur.com/lE5fqYp.gif);
@@ -50,23 +59,22 @@ h1 {
 
 #actual {
 /*	background-color: #FCECCB;
-*/	background-image: url(http://i.imgur.com/nFu4PHk.gif);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	position: fixed;
-    left: 0px;
+*/	position: fixed;
+	top: 0;
+	bottom: 0;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+   	overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #navbar {
 	width: 100%;
 	height: 75px;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: rgba(252, 236, 203, 0.75);
@@ -80,6 +88,7 @@ h1 {
 	float: left;
 	color: #4D0013;
 	font-size:150%;
+	position: absolute;
 }
 
 .glyphicon:hover {
@@ -91,24 +100,20 @@ h2 {
 /*	color: #FCECCB;
 */	color: #4D0013; 
 	font-family: 'Gruppo', sans-serif;
-	font-size: 300%;
+	font-size: 250%;
 	text-align: center;
-	float: right;
 	margin: 15px 10px 15px 15px;
-}
-
-#search {
-	margin-top: 20%;
-	margin-bottom: 50px;
-}
-
-.input-group {
-	font-family: 'Gruppo', sans-serif;
+	position: absolute;
+	right: 0;
 }
 
 .input-group {
 	width: 100%;
-	text-align: center;
+	float: left;
+	margin-top: 150px;
+	margin-bottom: 50px;
+	font-family: 'Gruppo', sans-serif;
+	position: relative;
 }
 
 .input-group #bar {
@@ -142,16 +147,15 @@ h2 {
 	font-size: 20px;
 }
 
-.center-page {
+#center-page {
 	margin-left: 20%;
 	margin-right: 20%;
 }
 
 .row {
-	margin-left: 15px;
-	margin-right: -35px;
 	font-family: 'Gruppo', sans-serif;
 	color: #4D0013;
+	overflow: hidden scroll;
 }
 
 #pop_name {
@@ -161,8 +165,11 @@ h2 {
 	margin-top: 10px;
 }
 
+#popular {
+	overflow: hidden scroll;
+}
+
 #popular .col-sm-2 {
-	width: 16%;
 	height: 150px;
 	margin: 20px 0 20px 0;
 }
