@@ -76,6 +76,11 @@ h3 {
 	height: 149px;
 	border-right: 1px solid black;
 }
+#result-img-container5 {
+	width: 150px;
+	height: 149px;
+	border-right: 1px solid black;
+}
 
 #result-img {
 	width: 100%;
@@ -194,6 +199,10 @@ section {
 	height: 90px;
 }
 
+#toggle5:checked ~ #expand5 {
+	height: 90px;
+}
+
 #toggle0:checked ~ label::before {
 	content: "-";
 	font-family: 'Gruppo', sans-serif;
@@ -219,6 +228,12 @@ section {
 }
 
 #toggle4:checked ~ label::before {
+	content: "-";
+	font-family: 'Gruppo', sans-serif;
+	font-weight: bold;
+}
+
+#toggle5:checked ~ label::before {
 	content: "-";
 	font-family: 'Gruppo', sans-serif;
 	font-weight: bold;
