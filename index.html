@@ -52,25 +52,32 @@
                 list.setAttribute('data-toggle', 'modal');
                 list.setAttribute('data-target', '#listModal');
 
-                $.get("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS?TableName=WineFoodShopping", function(data){
-                    var db = JSON.stringify(data);
+                $(list).on("click", function (){
+                    var content = document.getElementById('sh_list')
+                    content.innerHTML = "";
+                    $.get("https://kzhe8vy1yd.execute-api.us-east-1.amazonaws.com/prod/TaskWS?TableName=WineFoodShopping", function(data){
+                        var db = JSON.stringify(data);
 
-                    var parse = JSON.parse(db);
-                    var recipeList = parse.Items;
+                        var parse = JSON.parse(db);
+                        var recipeList = parse.Items;
 
-                    var sh_list = document.getElementById('sh_list');
-                    for (i = 0; i < recipeList.length; i++) {
+                        var sh_list = document.getElementById('sh_list');
+                        for (i = 0; i < recipeList.length; i++) {
 
-                        var label= document.createElement("hellogg");
-                        var item = document.createTextNode(" " + recipeList[i].Item);
-                        var checkbox = document.createElement('input');
-                        checkbox.setAttribute('type', 'checkbox');
-                        label.appendChild(checkbox);
-                        label.appendChild(item);
-                        document.getElementById('sh_list').appendChild(label);
-                        document.getElementById('sh_list').appendChild(document.createElement("br"));
-                    }
+                            var label= document.createElement("hellogg");
+                            var item = document.createTextNode(" " + recipeList[i].Item);
+                            var checkbox = document.createElement('input');
+                            checkbox.setAttribute('type', 'checkbox');
+                            label.appendChild(checkbox);
+                            label.appendChild(item);
+                            document.getElementById('sh_list').appendChild(label);
+                            document.getElementById('sh_list').appendChild(document.createElement("br"));
+                        }
+                    });
+                    console.log('list printed')
                 });
+
+                
 
                 var button = document.getElementById('button');
                 button.setAttribute('data-toggle', 'modal');
