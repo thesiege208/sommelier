@@ -165,7 +165,9 @@
                 
                 var data = JSON.parse(JSON.stringify(data))["Items"][0];
                 // console.log(data);
-
+                if (data === undefined) {
+                    return;
+                }
                 targetName = data["Item"];
                 targetImage = data["Picture"];
                 targetInfo = data["Info"];
@@ -238,10 +240,26 @@
 
             }).fail(function(res) {
                 console.log(res)
+                // alert('No Result')
             })
             
 
             setTimeout(function(){
+
+                if (resList.length == 0) {
+                    // alert('No Result');
+
+
+
+                var modal = document.getElementById('results_list');
+                modal.innerHTML = "";
+
+                var title = document.getElementById('results-title');
+                title.innerText = "No Result"; 
+
+                    return;
+                }
+
                 console.log("hello");
                 console.log(resList.length);
 
